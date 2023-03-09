@@ -233,11 +233,11 @@ Seguem os resultados dos benchmarks com tamanhos de string variados:
 
 ## Fonte
 
-https://www.stevejgordon.co.uk/creating-strings-with-no-allocation-overhead-using-string-create-csharp
-https://learn.microsoft.com/pt-br/dotnet/api/system.text.stringbuilder?view=net-7.0#the-string-and-stringbuilder-types
-https://medium.com/c-sharp-progarmming/stringbuilder-vs-concatenation-in-net-b817ccec331e
-https://www.macoratti.net/21/11/c_benchmark1.htm
-https://www.oreilly.com/library/view/c-cookbook/0596003390/ch02s22.html
-https://www.infoworld.com/article/3616600/when-to-use-string-vs-stringbuilder-in-net-core.html
-https://davecallan.com/improve-performance-stringbuilder-dotnet-setting-capacity/
-https://andrewlock.net/a-deep-dive-on-stringbuilder-part-2-appending-strings-built-in-types-and-lists/
+<https://www.stevejgordon.co.uk/creating-strings-with-no-allocation-overhead-using-string-create-csharp>
+<https://learn.microsoft.com/pt-br/dotnet/api/system.text.stringbuilder?view=net-7.0#the-string-and-stringbuilder-types>
+<https://medium.com/c-sharp-progarmming/stringbuilder-vs-concatenation-in-net-b817ccec331e>
+<https://www.macoratti.net/21/11/c_benchmark1.htm>
+<https://www.oreilly.com/library/view/c-cookbook/0596003390/ch02s22.html>
+<https://www.infoworld.com/article/3616600/when-to-use-string-vs-stringbuilder-in-net-core.html>
+<https://davecallan.com/improve-performance-stringbuilder-dotnet-setting-capacity/>
+<https://andrewlock.net/a-deep-dive-on-stringbuilder-part-2-appending-strings-built-in-types-and-lists/>
