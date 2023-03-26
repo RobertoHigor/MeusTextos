@@ -22,11 +22,9 @@ public class TextEditor {
 
 ## Inversão de controle
 
-Inversão de controle é o processo de transferir o controle de uma função para outro serviço, como um framework. Assim, conseguimos focar na escrita do código para tomar ação a partir da declaração de quando tomar uma ação, e não como realizar essa ação.
+Inversão de controle é uma técnica em que o controle é invertido na hierarquia de dependência entre as classes. Isso significa que uma classe dependente recebe suas dependências de uam classe externa, ao invés de cria-las internamente.
 
-Um exemplo é o `[HttpGet]` do .NET, sendo uma inversão de controle responsável por lidar com uma chamada GET de uma API. Nesse caso, não precisamos nos preocupar em implementar essa funcionalidade, transferindo a responsabilidade para o framework e nos focando apenas no que fazer após receber a chamada.
-
-## Orientação a interfaces
+### Orientação a interfaces
 
 No primeiro exemplo, é gerado diversos problemas devido ao acoplamento a uma classe concreta, como:
 
@@ -62,9 +60,15 @@ TextEditor textEditor = new TextEditor(sc);
 bool textoOk = textEditor.Check();
 ```
 
+## Injeção de dependências
+
+Conforme um sistema vai crescendo, a criação de vários objetos pode se tornar um processo complexo e trabalhoso. Uma maneira é tornar necessário apenas com que o componente solicite a dependência, e não mais o fornecimento por um componente. Isso é possível através da **injeção de dependência**.
+
+A injeção de dependência (ou *dependency injection*) é uma *design pattern* para sistemas com orientação a objetos, sendo uma **especialização de inversão de controle tendo (IoC)** o objetivo de injetar dinamicamente dependências em uma classe, em tempo de execução. Nesse caso, a responsabilidade de construir os objetos para um framework.
+
 ### Tipos de injeção de dependência
 
-Explicando de forma breve, existem 2 principais maneiras
+Mesmo utilizando um framework para o fornecimento de dependências, é necessário com que a classe tenha uma maneira de receber essa implementação. O método utilizado servirá tanto com o uso do framework, quanto para uma injeção manual, sendo as 2 principais maneiras:
 
 1. Injeção via construtor
 
@@ -86,12 +90,6 @@ public class TextEditor {
     }
 }
 ```
-
-## Injeção de dependências
-
-Conforme um sistema vai crescendo, a criação de vários objetos pode se tornar um processo complexo e trabalhoso. Uma maneira é tornar necessário apenas com que o componente solicite a dependência, e não mais o fornecimento por um componente. Isso é possível através da **injeção de dependência**.
-
-A injeção de dependência (ou *dependency injection*) é uma *design pattern* para sistemas com orientação a objetos, sendo uma **especialização de inversão de controle tendo (IoC)** o objetivo de injetar dinamicamente dependências em uma classe, em tempo de execução. Nesse caso, a responsabilidade de construir os objetos para um framework.
 
 ### Service Container do ASP.NET Core
 
@@ -122,6 +120,14 @@ services.AddTransient<IMyDependency, Myependency>() // Transient
 
 Existem casos específicos de quando usar cada uma das implementações. Por exemplo, `Singleton` pode ser ideal para classes de `cache`, por ser acessadas em todas as requisições. Essas diferenças e seus casos de uso serão discutidos no próximo artigo.
 
+## Conclusão
+
+A inversão de controle é uma forma com que conseguimos injetar as dependências de uma classe através de uma classe externa, que junto do *design* orientado a interfaces, Ajuda na redução de acoplamento entre as classes.
+
+Já a injeção de dependência, é um tipo de IoC no qual registramos o ciclo de vida e implementação de uma interface, transferindo a responsabilidade de criação de objetos para um framework, e eliminando a necessidade de criar manualmente cada objetos, o que pode se tornar complexo em sistemas grandes.
+
+Caso tenha alguma informação incorreta, ou algum ponto a acrescentar, não deixe de comentar.
+
 ## Fontes
 
 <https://stackoverflow.com/questions/3058/what-is-inversion-of-control>
@@ -136,5 +142,3 @@ Existem casos específicos de quando usar cada uma das implementações. Por exe
 
 <https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff921087(v=pandp.10)>
 <https://imasters.com.br/software/inversao-de-controle-service-locator-e-injecao-de-dependencia>
-
-<https://reflectoring.io/dependency-injection-and-inversion-of-control/>
